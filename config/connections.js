@@ -58,8 +58,8 @@ module.exports.connections = {
   ***************************************************************************/
   mongo: {
     adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
+    host: process.env.MONGO_HOST || 'localhost',
+    port: process.env.MONGO_PORT || 27017,
     database: 'replay' //optional
   },
 

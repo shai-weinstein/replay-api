@@ -11,7 +11,7 @@
  */
 var blueprints = require('.././blueprints').blueprints;
 var port = process.env.PORT || 1337;
-var baseUrl = 'http://localhost';
+var baseUrl = process.env.BASE_URL || 'http://localhost';
 
 module.exports = {
 
