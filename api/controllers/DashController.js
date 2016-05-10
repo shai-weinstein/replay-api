@@ -14,7 +14,9 @@ module.exports = {
 		getVideo(id)
 		.then(getMpdFromWowza)
 		.then(function(mpd){
-			res.ok(mpd);
+
+      //res.setHeader('Content-Type', 'application/dash+xml');
+			res.json({url: mpd});
 		})
 		.catch(function(err){
 			if(err){
@@ -25,7 +27,7 @@ module.exports = {
 			res.serverError('There was an unexpected error retrieving mpd file.');
 		});
 	}
-}
+};
 
 
 
@@ -44,8 +46,7 @@ function getVideo(id){
 }
 
 function getMpdFromWowza(video){
-	var path = video.relativePath + '/' + video.name;
-	// var path = 'sample.mp4';
+	var path = video.relativePath;
 	return WowzaService.getMpd(path);
 }
 
