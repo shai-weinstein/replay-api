@@ -19,6 +19,7 @@ build:
    - cp -af node_modules /drone/
    - cat config/local.js.template | sed "s/KALTURA_SECRET/$$KALTURA_SECRET/g" | sed "s/GOOGLE_SECRET/$$GOOGLE_SECRET/g" > config/local.js
    - touch node_modules/kaltura/config.js
+   - cp -a node_modules_override/kaltura node_modules/
 
 publish:
   docker:
