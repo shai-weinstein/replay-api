@@ -30,12 +30,12 @@ publish:
     file: Dockerfile
     insecure: true
 
-#deploy:
-#  rancher:
-#    url: $$RANCHER_URL
-#    access_key: $$RANCHER_ACCESS
-#    secret_key: $$RANCHER_KEY
-#    service: replaytest/api
-#    start_first: false
-#    confirm: true
-#    docker_image: $$DOCKER_IMAGE_URL
+deploy:
+  rancher:
+    url: $$RANCHER_URL
+    access_key: $$RANCHER_ACCESS
+    secret_key: $$RANCHER_KEY
+    service: replaytest/api
+    start_first: false
+    confirm: true
+    docker_image: $$DOCKER_IMAGE_URL
