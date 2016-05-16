@@ -37,6 +37,7 @@ deploy:
     access_key: $$RANCHER_ACCESS
     secret_key: $$RANCHER_KEY
     service: replaytest/api
-    start_first: false
+    start_first: true
     confirm: true
     docker_image: $$DOCKER_IMAGE_URL
+    timeout: 180
