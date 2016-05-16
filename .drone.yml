@@ -37,6 +37,6 @@ deploy:
     access_key: $$RANCHER_ACCESS
     secret_key: $$RANCHER_KEY
     service: replaytest/api
-    start_first: true
+    start_first: false
     confirm: true
     docker_image: $$DOCKER_IMAGE_URL
