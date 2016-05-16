@@ -1,6 +1,6 @@
 FROM node:4
 
-
+RUN apt-get update && apt-get install -y libkrb5-dev
 RUN npm install -g bower node-gyp sails  -qq 
 
 RUN groupadd -r node \

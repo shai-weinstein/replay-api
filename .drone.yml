@@ -11,6 +11,7 @@ build:
   image: node:4
   commands:
    - mkdir -p /drone/node_modules /drone/npm /drone/usr_local
+   - apt-get update && apt-get install -y libkrb5-dev
    - ln -snf /drone/usr_local /usr/local
    - npm update -g bower node-gyp sails -q
    - ln -snf /drone/npm /root/.npm
@@ -36,6 +37,6 @@ deploy:
     access_key: $$RANCHER_ACCESS
     secret_key: $$RANCHER_KEY
     service: replaytest/api
-    start_first: false
+    start_first: true
     confirm: true
     docker_image: $$DOCKER_IMAGE_URL
