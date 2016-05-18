@@ -1,26 +1,25 @@
 branches:
   - develop
 
-cache:
-  mount:
-   - /drone/node_modules
-   - /drone/npm
-   - /drone/usr_local
+#cache:
+#  mount:
+#   - /drone/node_modules
+#   - /drone/npm
+#   - /drone/usr_local
 
 build:
   image: node:4
   commands:
-   - mkdir -p /drone/node_modules /drone/npm /drone/usr_local
+   #- mkdir -p /drone/node_modules /drone/npm /drone/usr_local
    - apt-get update && apt-get install -y libkrb5-dev
-   - ln -snf /drone/usr_local /usr/local
+   #- ln -snf /drone/usr_local /usr/local
    - npm update -g bower node-gyp sails -q
-   - ln -snf /drone/npm /root/.npm
-   - cp -a /drone/node_modules .
+   #- ln -snf /drone/npm /root/.npm
+   #- cp -a /drone/node_modules .
    - npm install -q
-   - cp -af node_modules /drone/
+   #- cp -af node_modules /drone/
    - cat config/local.js.template | sed "s/KALTURA_SECRET/$$KALTURA_SECRET/g" | sed "s/GOOGLE_SECRET/$$GOOGLE_SECRET/g" > config/local.js
    - touch node_modules/kaltura/config.js
-   - cp -a node_modules_override/kaltura node_modules/
 
 publish:
   docker:
